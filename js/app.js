@@ -6,14 +6,16 @@ const seattle = {
   minCustomer: 23,
   maxCustomer: 65,
   avg: 6.3,
-  cookiePerDay: [],
-  calcCookieHour: function (){
+  cookiePerHourArray: [],
+  // Function to generate random Customer/Hour
+  calcCustomerHour: function (){
     return getMinMax(this.minCustomer,this.maxCustomer);
   },
   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-  calcCookieAvg: function () {
-    return this.calcCookieHour() * this.avg
+  calcCookieHourAvg: function () {
+    return this.calcCustomerHour() * this.avg
   },
+  //Function that loops 13 times generating a variable Hour which = startHour variable (6) and adds our Index value + either 'am' or 'pm' depending on the if(peramiter). On each iteration we generate a cookies sold per hour value based on our object value of (this.calcCookieHourAvg()) which is a function that runs calcCustomerHour() and multiples the value by our this.avg (which is our objects avg cookies sold per customer value). Our loop then generates an empty hourObject {}; and fills this object with 'Hour + 'am'/'pm' and a cookiePerHourAvg number. we then push this data into our empty object array above named cookiePerHourArray []. 
   cookieHourlySales: function () {
     let startHour = 6
     for(let i = 0; i < 14; i++) {
@@ -25,10 +27,10 @@ const seattle = {
       } else if (hour > 12) {
         hour = (hour - 12) + 'pm';
       } 
-      let cookiesSold = Math.round(this.calcCookieAvg())
+      let cookiesSold = Math.round(this.calcCookieHourAvg())
       let hourObject = {};
-      hourObject[hour] = cookiesSold
-      this.cookiePerDay.push(hourObject);
+      hourObject[hour] = cookiesSold //////////////////////////// Whats going on here. Ask Jonathan.///////////////////
+      this.cookiePerHourArray.push(hourObject);
     }
   }
 };
@@ -37,13 +39,13 @@ const tokyo = {
   minCustomer: 3,
   maxCustomer: 24,
   avg: 1.2,
-  cookiePerDay: [],
-  calcCookieHour: function (){
+  cookiePerHourArray: [],
+  calcCustomerHour: function (){
     return getMinMax(this.minCustomer,this.maxCustomer);
   },
   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-  calcCookieAvg: function () {
-    return this.calcCookieHour() * this.avg
+  calcCookieHourAvg: function () {
+    return this.calcCustomerHour() * this.avg
   },
   cookieHourlySales: function () {
     let startHour = 6
@@ -56,10 +58,10 @@ const tokyo = {
       } else if (hour > 12) {
         hour = (hour - 12) + 'pm';
       } 
-      let cookiesSold = Math.round(this.calcCookieAvg())
+      let cookiesSold = Math.round(this.calcCookieHourAvg())
       let hourObject = {};
       hourObject[hour] = cookiesSold
-      this.cookiePerDay.push(hourObject);
+      this.cookiePerHourArray.push(hourObject);
     }
   }
 };
@@ -68,13 +70,13 @@ const dubai = {
   minCustomer: 11,
   maxCustomer: 38,
   avg: 3.7,
-  cookiePerDay: [],
-  calcCookieHour: function (){
+  cookiePerHourArray: [],
+  calcCustomerHour: function (){
     return getMinMax(this.minCustomer,this.maxCustomer);
   },
   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-  calcCookieAvg: function () {
-    return this.calcCookieHour() * this.avg
+  calcCookieHourAvg: function () {
+    return this.calcCustomerHour() * this.avg
   },
   cookieHourlySales: function () {
     let startHour = 6
@@ -87,10 +89,10 @@ const dubai = {
       } else if (hour > 12) {
         hour = (hour - 12) + 'pm';
       } 
-      let cookiesSold = Math.round(this.calcCookieAvg())
+      let cookiesSold = Math.round(this.calcCookieHourAvg())
       let hourObject = {};
       hourObject[hour] = cookiesSold
-      this.cookiePerDay.push(hourObject);
+      this.cookiePerHourArray.push(hourObject);
     }
   }
 };
@@ -99,13 +101,13 @@ const paris = {
   minCustomer: 20,
   maxCustomer: 38,
   avg: 2.3,
-  cookiePerDay: [],
-  calcCookieHour: function (){
+  cookiePerHourArray: [],
+  calcCustomerHour: function (){
     return getMinMax(this.minCustomer,this.maxCustomer);
   },
   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-  calcCookieAvg: function () {
-    return this.calcCookieHour() * this.avg
+  calcCookieHourAvg: function () {
+    return this.calcCustomerHour() * this.avg
   },
   cookieHourlySales: function () {
     let startHour = 6
@@ -118,10 +120,10 @@ const paris = {
       } else if (hour > 12) {
         hour = (hour - 12) + 'pm';
       } 
-      let cookiesSold = Math.round(this.calcCookieAvg())
+      let cookiesSold = Math.round(this.calcCookieHourAvg())
       let hourObject = {};
       hourObject[hour] = cookiesSold
-      this.cookiePerDay.push(hourObject);
+      this.cookiePerHourArray.push(hourObject);
     }
   }
 };
@@ -130,13 +132,13 @@ const lima = {
   minCustomer: 2,
   maxCustomer: 16,
   avg: 4.6,
-  cookiePerDay: [],
-  calcCookieHour: function (){
+  cookiePerHourArray: [],
+  calcCustomerHour: function (){
     return getMinMax(this.minCustomer,this.maxCustomer);
   },
   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-  calcCookieAvg: function () {
-    return this.calcCookieHour() * this.avg
+  calcCookieHourAvg: function () {
+    return this.calcCustomerHour() * this.avg
   },
   cookieHourlySales: function () {
     let startHour = 6
@@ -149,10 +151,10 @@ const lima = {
       } else if (hour > 12) {
         hour = (hour - 12) + 'pm';
       } 
-      let cookiesSold = Math.round(this.calcCookieAvg())
+      let cookiesSold = Math.ceil(this.calcCookieHourAvg())
       let hourObject = {};
       hourObject[hour] = cookiesSold
-      this.cookiePerDay.push(hourObject);
+      this.cookiePerHourArray.push(hourObject);
     }
   }
 };
@@ -177,23 +179,23 @@ function renderCity (city) {
   const ulEl = document.createElement('ul');
   articleEl.appendChild(ulEl);
   let sum = 0
-  for(let i = 0; i < city.cookiePerDay.length; i++) {
-    let currentHour = city.cookiePerDay[i];
+  for(let i = 0; i < city.cookiePerHourArray.length; i++) {
+    let currentHour = city.cookiePerHourArray[i];
     const liEl = document.createElement('li');
-    let key = Object.keys(city.cookiePerDay[i])[0];
-    let num = city.cookiePerDay[i][key]
+    let key = Object.keys(city.cookiePerHourArray[i])[0]; 
+    let num = city.cookiePerHourArray[i][key]
     sum += num
-    liEl.textContent = key + ' - ' + num;
+    liEl.textContent = `${key}:  ${num} cookies`;
     ulEl.appendChild(liEl);
   }
     const liElsum = document.createElement('li');
-    liElsum.textContent = 'Total: ' + ' - ' + sum;
+    liElsum.textContent = `Total: ${sum} cookies`;
     ulEl.appendChild(liElsum);
   }
   function generateCities (city){
     city.cookieHourlySales();
-    city.calcCookieHour();
-    city.calcCookieAvg();
+    city.calcCustomerHour();
+    city.calcCookieHourAvg();
   }
   
   generateCities(seattle);
