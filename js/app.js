@@ -58,17 +58,28 @@ Restaurant.prototype._renderPlace = function() {
   trElCities.appendChild(thElCities);
   
   for(let i = 0; i < this.hoursOfOperation.length; i++){
-    //create hoursOfOperation Row  
-    let trElHours = document.getElementById('hoursData')
-    const thElHours = document.createElement('th')
-    thElHours.textContent = this.hoursOfOperation[i];
-    trElHours.appendChild(thElHours);
+    // //create hoursOfOperation Row  
+    // let trElHours = document.getElementById('hoursData')
+    // const thElHours = document.createElement('th')
+    // thElHours.textContent = this.hoursOfOperation[i];
+    // trElHours.appendChild(thElHours);
     const tdElSales = document.createElement('td')
     tdElSales.textContent = this.avgCookiesPerHourArray[i];
     trElCities.appendChild(tdElSales)
   }
 }
-console.log('67')
+///////////////////////////////////////This is not posting my hours///////////////////////////////////////////////
+function renderHeader() {
+  for(let i = 0; i < Restaurant.restaurantArray[i][4]; i++){
+    console.log('test 74')
+    let trElHours = document.getElementById('hoursData')
+    const thElHours = document.createElement('th')
+    thElHours.textContent = this.restaurantArray[i];
+    trElHours.appendChild(thElHours);
+  }
+}
+
+
   function renderTable() {
      //Create Article//
 
@@ -96,8 +107,9 @@ console.log('67')
     
   }
 
-console.log('test')
+
   renderTable();
+  renderHeader();
   seattle._cookiesPerHour()
   seattle._generateCookieSalesArray()
   seattle._renderTotals()
