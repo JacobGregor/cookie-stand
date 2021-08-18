@@ -68,17 +68,16 @@ Restaurant.prototype._renderPlace = function() {
     trElCities.appendChild(tdElSales)
   }
 }
-///////////////////////////////////////This is not posting my hours///////////////////////////////////////////////
-function renderHeader() {
-  for(let i = 0; i < Restaurant.restaurantArray[i][4]; i++){
+
+Restaurant.prototype.renderHeader = function() {
+  for(let i = 0; i < this.hoursOfOperation.length; i++){
     console.log('test 74')
     let trElHours = document.getElementById('hoursData')
     const thElHours = document.createElement('th')
-    thElHours.textContent = this.restaurantArray[i];
+    thElHours.textContent = this.hoursOfOperation[i];
     trElHours.appendChild(thElHours);
   }
 }
-
 
   function renderTable() {
      //Create Article//
@@ -109,31 +108,41 @@ function renderHeader() {
 
 
   renderTable();
-  renderHeader();
+
   seattle._cookiesPerHour()
   seattle._generateCookieSalesArray()
   seattle._renderTotals()
   seattle._renderPlace()
+  seattle.renderHeader();
+
   
   tokyo._cookiesPerHour()
   tokyo._generateCookieSalesArray()
   tokyo._renderTotals()
   tokyo._renderPlace()
+  // tokyo.renderHeader();
+
 
   dubai._cookiesPerHour()
   dubai._generateCookieSalesArray()
   dubai._renderTotals()
   dubai._renderPlace()
+  // dubai.renderHeader();
+
 
   paris._cookiesPerHour()
   paris._generateCookieSalesArray()
   paris._renderTotals()
   paris._renderPlace()
+  // paris.renderHeader();
+
 
   lima._cookiesPerHour()
   lima._generateCookieSalesArray()
   lima._renderTotals()
   lima._renderPlace()
+  // lima.renderHeader();
+
 
  
   
