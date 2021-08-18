@@ -7,8 +7,17 @@ function Restaurant(name,minCustomer,maxCustomer,avg,avgCookiesPerHourArray) {
   this.maxCustomer = maxCustomer;
   this.avg = avg;
   this.avgCookiesPerHourArray = avgCookiesPerHourArray 
-  this.hoursOfOperation = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  this.hoursOfOperation = [' White space ',' 6:00am ', ' 7:00am ', ' 8:00am ', ' 9:00am ', ' 10:00am ', ' 11:00am ', ' 12:00pm ', ' 1:00pm ', ' 2:00pm ', ' 3:00pm ', ' 4:00pm ', ' 5:00pm ', ' 6:00pm ', ' 7:00pm ']
+  Restaurant.restaurantArray.push(this)
 }
+  Restaurant.restaurantArray = [];
+  
+  // New Objects for each city //
+  let seattle = new Restaurant('Seattle',23,65,6.3,[])
+  let tokyo = new Restaurant('Tokyo',3,22,1.2,[])
+  let dubai = new Restaurant('Dubai',11,38,3.7,[])
+  let paris = new Restaurant('Paris',20,38,2.3,[])
+  let lima = new Restaurant('Lima',2,16,4.6,[])
 
 //Function to Generate Random Customer count//
 Restaurant.prototype._cookiesPerHour = function() {
@@ -21,48 +30,163 @@ Restaurant.prototype._cookiesPerHour = function() {
 //Prototype that generates cookie per/hr sales array//
 Restaurant.prototype._generateCookieSalesArray = function() {
   let hoursOfOperation = this.hoursOfOperation
-  for(let i = 0; i < hoursOfOperation.length; i++) {
-    let cookiesPerHour = this._cookiesPerHour()
-    this.avgCookiesPerHourArray.push(cookiesPerHour)
+  for(let i = 0; i < hoursOfOperation.length -1; i++) {
+      let cookiesPerHour = this._cookiesPerHour()
+      this.avgCookiesPerHourArray.push(cookiesPerHour)
   }
 }
-//Prototype that renders Cities, hoursOOperation and sales data into a table//
-Restaurant.prototype._renderCities = function() {
-  const articleEl = document.createElement('article')
-  let cityDiv = document.getElementById('city')
-  cityDiv.appendChild(articleEl);
-  
-  const h2El = document.createElement('h2');
-  h2El.textContent = this.name;
-  articleEl.appendChild(h2El);
-  
-  const ulEl = document.createElement('ul');
-  articleEl.appendChild(ulEl);
+console.log('38')
+//Prototype that renders totals//
+Restaurant.prototype._renderTotals = function() {
+
   let total = 0
   for(let i = 0; i < this.avgCookiesPerHourArray.length; i++) {
     total += this.avgCookiesPerHourArray[i];
-    const liEl = document.createElement('li')
-    liEl.textContent = `${this.hoursOfOperation[i]} ${this.avgCookiesPerHourArray[i]} cookies`
-    ulEl.appendChild(liEl);
   }
-    const liEltotal = document.createElement('li');
-    liEltotal.textContent = `Total: ${total} cookies`;
-    ulEl.appendChild(liEltotal);
+};
+  // Function to create location w/ data//
+Restaurant.prototype._renderPlace = function() {
+  
+  //create body of table
+  const trElCities = document.createElement('tr');
+  let tbodyEl = document.getElementById('data')
+  tbodyEl.appendChild(trElCities);
+  
+  const thElCities = document.createElement('th')
+  trElCities.id="citiesData"
+  thElCities.textContent = this.name;
+  trElCities.appendChild(thElCities);
+  
+  for(let i = 0; i < this.hoursOfOperation.length; i++){
+    // //create hoursOfOperation Row  
+    // let trElHours = document.getElementById('hoursData')
+    // const thElHours = document.createElement('th')
+    // thElHours.textContent = this.hoursOfOperation[i];
+    // trElHours.appendChild(thElHours);
+    const tdElSales = document.createElement('td')
+    tdElSales.textContent = this.avgCookiesPerHourArray[i];
+    trElCities.appendChild(tdElSales)
   }
+}
+///////////////////////////////////////This is not posting my hours///////////////////////////////////////////////
+function renderHeader() {
+  for(let i = 0; i < Restaurant.restaurantArray[i][4]; i++){
+    console.log('test 74')
+    let trElHours = document.getElementById('hoursData')
+    const thElHours = document.createElement('th')
+    thElHours.textContent = this.restaurantArray[i];
+    trElHours.appendChild(thElHours);
+  }
+}
+
+
+  function renderTable() {
+     //Create Article//
+
+     const articleEl = document.createElement('article');
+     let cityDiv = document.getElementById('city');
+     cityDiv.appendChild(articleEl);
+
+     //Create Table//  
+     const tableEl = document.createElement('table');
+     articleEl.appendChild(tableEl);
+     
+     //Creates Table Head//
+     const tableHeadEl = document.createElement('thead')
+     tableEl.appendChild(tableHeadEl);
+     
+     //Create Table Row//
+     const trElHours = document.createElement('tr');
+     trElHours.id = 'hoursData'
+     tableHeadEl.appendChild(trElHours);
+   
+     // create body//
+     const tbodyEl = document.createElement('tbody')
+     tbodyEl.id='data'
+     tableEl.appendChild(tbodyEl)
+    
+  }
+
+
+  renderTable();
+  renderHeader();
+  seattle._cookiesPerHour()
+  seattle._generateCookieSalesArray()
+  seattle._renderTotals()
+  seattle._renderPlace()
+  
+  tokyo._cookiesPerHour()
+  tokyo._generateCookieSalesArray()
+  tokyo._renderTotals()
+  tokyo._renderPlace()
+
+  dubai._cookiesPerHour()
+  dubai._generateCookieSalesArray()
+  dubai._renderTotals()
+  dubai._renderPlace()
+
+  paris._cookiesPerHour()
+  paris._generateCookieSalesArray()
+  paris._renderTotals()
+  paris._renderPlace()
+
+  lima._cookiesPerHour()
+  lima._generateCookieSalesArray()
+  lima._renderTotals()
+  lima._renderPlace()
+
+ 
+  
   
 
-// New Objects for each city //
-let seattle = new Restaurant('Seattle',23,65,6.3,[])
-let tokyo = new Restaurant('Tokyo',3,22,1.2,[])
-let dubai = new Restaurant('Dubai',11,38,3.7,[])
-let paris = new Restaurant('Paris',20,38,2.3,[])
-let lima = new Restaurant('Lima',2,16,4.6,[])
-    
-seattle._cookiesPerHour()
-seattle._generateCookieSalesArray()
-seattle._renderCities()
-console.log(seattle)
 
+
+
+
+
+  //   const thElCities = document.createElement('th')
+  //   thElCities.textContent = this.name;
+  //   trElCities.appendChild(thElCities);
+  //   console.log(thElCities)
+  // }; 
+
+  
+  // for(let i = 0; i < Restaurant.restaurantArray.length[i]; i++) {
+  //   const thElCities = document.createElement('th')
+  //   thElCities.textContent = this.restaurantArray[0];
+  //   trElCities.appendChild(thElCities);
+  //   console.log(thElCities)
+  
+  // //create city row for each iteration//
+  // for (let i = 0; i < Restaurant.restaurantArray.length[i]; i++){
+  // }
+
+
+
+
+  /////////////////Delete this later/////////////////////  
+  //posts time and cookie totals/////////
+    // const liEl = document.createElement('li')
+    // liEl.textContent = `${this.hoursOfOperation[i]} ${this.avgCookiesPerHourArray[i]} cookies`
+    // ulEl.appendChild(liEl);
+
+  //Generates Hours of Operation to table//  
+    // const thElHours = document.createElement('th')
+    // thElHours.textContent = this.hoursOfOperation[i];
+    // trElHours.appendChild(thElHours);
+
+  //Generates Cities to table//
+
+  ///////////////////////////renders totals////
+    // const liEltotal = document.createElement('li');
+    // liEltotal.textContent = `Total: ${total} cookies`;
+    // ulEl.appendChild(liEltotal);
+  
+  
+  // renderTable();
+  
+
+  
 
 
 
