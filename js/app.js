@@ -58,11 +58,6 @@ Restaurant.prototype._renderPlace = function() {
   trElCities.appendChild(thElCities);
   
   for(let i = 0; i < this.hoursOfOperation.length; i++){
-    // //create hoursOfOperation Row  
-    // let trElHours = document.getElementById('hoursData')
-    // const thElHours = document.createElement('th')
-    // thElHours.textContent = this.hoursOfOperation[i];
-    // trElHours.appendChild(thElHours);
     const tdElSales = document.createElement('td')
     tdElSales.textContent = this.avgCookiesPerHourArray[i];
     trElCities.appendChild(tdElSales)
@@ -108,40 +103,33 @@ Restaurant.prototype.renderHeader = function() {
 
 
   renderTable();
-
+//Render Data for Seattle//
   seattle._cookiesPerHour()
   seattle._generateCookieSalesArray()
   seattle._renderTotals()
   seattle._renderPlace()
   seattle.renderHeader();
-
-  
+//Render Data for Tokyo//  
   tokyo._cookiesPerHour()
   tokyo._generateCookieSalesArray()
   tokyo._renderTotals()
   tokyo._renderPlace()
-  // tokyo.renderHeader();
-
-
+//Render data for Dubai
   dubai._cookiesPerHour()
   dubai._generateCookieSalesArray()
   dubai._renderTotals()
   dubai._renderPlace()
-  // dubai.renderHeader();
-
-
+//Render data for Paris
   paris._cookiesPerHour()
   paris._generateCookieSalesArray()
   paris._renderTotals()
   paris._renderPlace()
-  // paris.renderHeader();
-
-
+//Render data for Lima
   lima._cookiesPerHour()
   lima._generateCookieSalesArray()
   lima._renderTotals()
   lima._renderPlace()
-  // lima.renderHeader();
+
 
 
  
