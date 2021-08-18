@@ -7,9 +7,10 @@ function Restaurant(name,minCustomer,maxCustomer,avg,avgCookiesPerHourArray) {
   this.maxCustomer = maxCustomer;
   this.avg = avg;
   this.avgCookiesPerHourArray = avgCookiesPerHourArray 
+  this.hoursOfOperation = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 }
 
-//Function to Generate Random Customer count.
+//Function to Generate Random Customer count//
 Restaurant.prototype._cookiesPerHour = function() {
   let minCustomer = Math.ceil(this.minCustomer);
   let maxCustomer = Math.floor(this.maxCustomer);
@@ -17,16 +18,39 @@ Restaurant.prototype._cookiesPerHour = function() {
   let roundedCookiePerHour = Math.ceil(avgCookiePerHour)
   return roundedCookiePerHour
 }
-
+//Prototype that generates cookie per/hr sales array//
 Restaurant.prototype._generateCookieSalesArray = function() {
-  let hours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
-  for(let i = 0; i < hours.length; i++) {
+  let hoursOfOperation = this.hoursOfOperation
+  for(let i = 0; i < hoursOfOperation.length; i++) {
     let cookiesPerHour = this._cookiesPerHour()
     this.avgCookiesPerHourArray.push(cookiesPerHour)
   }
 }
+//Prototype that renders Cities, hoursOOperation and sales data into a table//
+Restaurant.prototype._renderCities = function() {
+  const articleEl = document.createElement('article')
+  let cityDiv = document.getElementById('city')
+  cityDiv.appendChild(articleEl);
+  
+  const h2El = document.createElement('h2');
+  h2El.textContent = this.name;
+  articleEl.appendChild(h2El);
+  
+  const ulEl = document.createElement('ul');
+  articleEl.appendChild(ulEl);
+  let total = 0
+  for(let i = 0; i < this.avgCookiesPerHourArray.length; i++) {
+    total += this.avgCookiesPerHourArray[i];
+    const liEl = document.createElement('li')
+    liEl.textContent = `${this.hoursOfOperation[i]} ${this.avgCookiesPerHourArray[i]} cookies`
+    ulEl.appendChild(liEl);
+  }
+    const liEltotal = document.createElement('li');
+    liEltotal.textContent = `Total: ${total} cookies`;
+    ulEl.appendChild(liEltotal);
+  }
+  
 
-    
 // New Objects for each city //
 let seattle = new Restaurant('Seattle',23,65,6.3,[])
 let tokyo = new Restaurant('Tokyo',3,22,1.2,[])
@@ -34,31 +58,54 @@ let dubai = new Restaurant('Dubai',11,38,3.7,[])
 let paris = new Restaurant('Paris',20,38,2.3,[])
 let lima = new Restaurant('Lima',2,16,4.6,[])
     
-// seattle.Restaurant();
-// seattle.prototype._cookiesPerHour()
-// console.log(seattle);
-// console.log(seattle._cookiesPerHour())
 seattle._cookiesPerHour()
 seattle._generateCookieSalesArray()
+seattle._renderCities()
 console.log(seattle)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //Function to Generate Random Customer count.
+// function getMinMax(minCustomer,maxCustomer) {
+//   minCustomer = Math.ceil(minCustomer)
+//   maxCustomer = Math.floor(maxCustomer)
+//   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
+// }
+// function renderCity (city) {
+  
+  
 
 
 
 
 //Objects
 // const seattle = {
-//   name: 'Seattle',
-//   minCustomer: 23,
-//   maxCustomer: 65,
+  //   name: 'Seattle',
+  //   minCustomer: 23,
+  //   maxCustomer: 65,
   // avg: 6.3,
-//   cookiePerHourArray: [],
-//   // Function to generate random Customer/Hour
-//   calcCustomerHour: function (){
-//     return getMinMax(this.minCustomer,this.maxCustomer);
-//   },
-//   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
-//   calcCookieHourAvg: function () {
-//     return this.calcCustomerHour() * this.avg
+  //   cookiePerHourArray: [],
+  //   // Function to generate random Customer/Hour
+  //   calcCustomerHour: function (){
+    //     return getMinMax(this.minCustomer,this.maxCustomer);
+    //   },
+    //   //Function calculate average cookies per/hour based on Avg. Cookie * Random Customer/hr function. 
+    //   calcCookieHourAvg: function () {
+      //     return this.calcCustomerHour() * this.avg
 //   },
 //   //Function that loops 13 times generating a variable Hour which = startHour variable (6) and adds our Index value + either 'am' or 'pm' depending on the if(peramiter). On each iteration we generate a cookies sold per hour value based on our object value of (this.calcCookieHourAvg()) which is a function that runs calcCustomerHour() and multiples the value by our this.avg (which is our objects avg cookies sold per customer value). Our loop then generates an empty hourObject {}; and fills this object with 'Hour + 'am'/'pm' and a cookiePerHourAvg number. we then push this data into our empty object array above named cookiePerHourArray []. 
 //   cookieHourlySales: function () {
@@ -205,38 +252,6 @@ console.log(seattle)
 // };
 
 
-// //Function to Generate Random Customer count.
-// function getMinMax(minCustomer,maxCustomer) {
-//   minCustomer = Math.ceil(minCustomer)
-//   maxCustomer = Math.floor(maxCustomer)
-//   return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
-// }
-// function renderCity (city) {
-//   //create article
-//   const articleEl = document.createElement('article')
-//   let cityDiv = document.getElementById('city');
-//   cityDiv.appendChild(articleEl);
-  
-//   const h2El = document.createElement('h2');
-//   h2El.textContent = city.name;
-//   articleEl.appendChild(h2El);
-
-//   const ulEl = document.createElement('ul');
-//   articleEl.appendChild(ulEl);
-//   let sum = 0
-//   for(let i = 0; i < city.cookiePerHourArray.length; i++) {
-//     let currentHour = city.cookiePerHourArray[i];
-//     const liEl = document.createElement('li');
-//     let key = Object.keys(city.cookiePerHourArray[i])[0]; 
-//     let num = city.cookiePerHourArray[i][key]
-//     sum += num
-//     liEl.textContent = `${key}:  ${num} cookies`;
-//     ulEl.appendChild(liEl);
-//   }
-//     const liElsum = document.createElement('li');
-//     liElsum.textContent = `Total: ${sum} cookies`;
-//     ulEl.appendChild(liElsum);
-//   }
 //   function generateCities (city){
 //     city.cookieHourlySales();
 //     city.calcCustomerHour();
@@ -255,8 +270,3 @@ console.log(seattle)
   // renderCity(dubai)
   // renderCity(paris)
   // renderCity(lima)
-
-
-
-
-
