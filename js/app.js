@@ -1,19 +1,47 @@
 'use strict'
 
 
-// Create constructor function to replace object literals //
-function Restaurant(name,minCustomer,maxCustomer,avg) {
+function Restaurant(name,minCustomer,maxCustomer,avg,avgCookiesPerHourArray) {
   this.name = name;
   this.minCustomer = minCustomer;
   this.maxCustomer = maxCustomer;
   this.avg = avg;
+  this.avgCookiesPerHourArray = avgCookiesPerHourArray 
 }
+
+//Function to Generate Random Customer count.
+Restaurant.prototype._cookiesPerHour = function() {
+  let minCustomer = Math.ceil(this.minCustomer);
+  let maxCustomer = Math.floor(this.maxCustomer);
+  let avgCookiePerHour = (Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer)) * this.avg;
+  let roundedCookiePerHour = Math.ceil(avgCookiePerHour)
+  return roundedCookiePerHour
+}
+
+Restaurant.prototype._generateCookieSalesArray = function() {
+  let hours = ['6am:', '7am:', '8am:', '9am:', '10am:', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
+  for(let i = 0; i < hours.length; i++) {
+    let cookiesPerHour = this._cookiesPerHour()
+    this.avgCookiesPerHourArray.push(cookiesPerHour)
+  }
+}
+
+    
 // New Objects for each city //
-let seattle = new Restaurant('Sattle',23,65,6.3)
-let tokyo = new Restaurant('Tokyo',3,22,1.2)
-let dubai = new Restaurant('Dubai',11,38,3.7)
-let paris = new Restaurant('Paris',20,38,2.3)
-let lima = new Restaurant('Lima',2,16,4.6)
+let seattle = new Restaurant('Seattle',23,65,6.3,[])
+let tokyo = new Restaurant('Tokyo',3,22,1.2,[])
+let dubai = new Restaurant('Dubai',11,38,3.7,[])
+let paris = new Restaurant('Paris',20,38,2.3,[])
+let lima = new Restaurant('Lima',2,16,4.6,[])
+    
+// seattle.Restaurant();
+// seattle.prototype._cookiesPerHour()
+// console.log(seattle);
+// console.log(seattle._cookiesPerHour())
+seattle._cookiesPerHour()
+seattle._generateCookieSalesArray()
+console.log(seattle)
+
 
 
 
