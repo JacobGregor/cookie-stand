@@ -1,0 +1,6 @@
+header img {
+  opacity: 1;
+}
+header img:hover {
+  opacity: .5;
+}
