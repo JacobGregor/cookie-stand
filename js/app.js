@@ -101,13 +101,19 @@ function createFooter() {
 
 }
 
+function createHeader() {
+  const theadEl = createElement('thead',cityDiv, null)
+  const trEl = createElement('tr', theadEl, null);
+  for(let i = 0; i < hoursOfOperation.length; i++) {
+    createElement('th', trEl, hoursOfOperation[i])
+  }
+};
+
 
 
 renderAllLocationData();
+createHeader();
 createFooter();
-
-
-
 
 
 
