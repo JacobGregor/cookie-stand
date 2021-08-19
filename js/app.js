@@ -12,9 +12,20 @@ function Restaurant(name,minCustomer,maxCustomer,avg) {
 }
 Restaurant.locationArray = [];
 
+// New Objects for each city //
+new Restaurant('Seattle',23,65,6.3);
+new Restaurant('Tokyo',3,22,1.2,);
+new Restaurant('Dubai',11,38,3.7);
+new Restaurant('Paris',20,38,2.3);
+new Restaurant('Lima',2,16,4.6);
+
+console.log(Restaurant.locationArray)
+
 ///////////Generates Customer////////////////
-Restaurant.prototype.generateCustomer = function() {
-  return Math.floor(Math.random() * (this.maxCustomer - this.minCustomer ) + this.minCustomer)
+Restaurant.prototype.generateCustomer = function(minCustomer,maxCustomer) {
+  minCustomer = this.minCustomer
+  maxCustomer = this.maxCustomer
+  return Math.floor(Math.random() * (maxCustomer - minCustomer) + minCustomer);
 }
 ////////////////Prototype that generates cookie per/hr sales array//////////
 Restaurant.prototype._generateCookieSalesArray = function() {
@@ -23,16 +34,11 @@ Restaurant.prototype._generateCookieSalesArray = function() {
     this.cookieSalesArray.push(Math.round(cookiesPerHour))
   }
 }
-// New Objects for each city //
-new Restaurant('Seattle',23,65,6.3);
-new Restaurant('Tokyo',3,22,1.2,);
-new Restaurant('Dubai',11,38,3.7);
-new Restaurant('Paris',20,38,2.3);
-new Restaurant('Lima',2,16,4.6);
+console.log(Restaurant._generateCookieSalesArray)
 /////////////// function that refactors _generateCookiesSalesArray and returns data for all cities.////////////////
 
 function renderSalesArrayAll() {
-  for(let i = 0; i < Restaurant.locationArray.length[i]; i++) {
+  for(let i = 0; i < Restaurant.locationArray.length; i++) {
     const currentInstance = Restaurant.locationArray[i];
     currentInstance._generateCookieSalesArray();
   }
