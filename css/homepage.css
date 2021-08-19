@@ -22,9 +22,9 @@ nav img {
   width: 50%;
   display: flex;
   margin-right: 35px;
-  /* opacity: 1; */
+  opacity: 1;
 }
-/* nav img:hover {opacity: .3;} */
+nav img:hover {opacity: .3;}
 
 
 nav ul {
