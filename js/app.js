@@ -71,14 +71,14 @@ Restaurant.prototype.renderLocationData = function(body) {
   }
   createElement('td', trEl, total)
 }
-
+// Renders ^^^ the above function which renders a single location, for all of the locations in the locationArray. // 
 function renderAllLocationData () {
   let tbodyEl = createElement('tbody', cityDiv, null);
   for(let i = 0; i < Restaurant.locationArray.length; i++) {
     Restaurant.locationArray[i].renderLocationData(tbodyEl)
   }
 }
-
+// Create Footer //
 function createFooter() {
   const tfootEl = createElement('tbody', cityDiv, null);
   const trEl = createElement('tr', tfootEl, null);
@@ -108,6 +108,7 @@ function createHeader() {
   }
   createElement('th',trEl,'Daily Totals');
 };
+// Event handler function to store form data and post to table. //
 function handleEvent(event) {
   event.preventDefault();
 
