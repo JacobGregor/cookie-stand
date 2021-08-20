@@ -1,7 +1,8 @@
 'use strict'
 const cityDiv = document.getElementById('city');
-const hoursOfOperation = [' ',' 6:00am ', ' 7:00am ', ' 8:00am ', ' 9:00am ', ' 10:00am ', ' 11:00am ', ' 12:00pm ', ' 1:00pm ', ' 2:00pm ', ' 3:00pm ', ' 4:00pm ', ' 5:00pm ', ' 6:00pm ', ' 7:00pm ']
+const hoursOfOperation = [' 6:00am ', ' 7:00am ', ' 8:00am ', ' 9:00am ', ' 10:00am ', ' 11:00am ', ' 12:00pm ', ' 1:00pm ', ' 2:00pm ', ' 3:00pm ', ' 4:00pm ', ' 5:00pm ', ' 6:00pm ', ' 7:00pm ']
 
+/////// Restaurant Location Constructor //////////
 function Restaurant(name,minCustomer,maxCustomer,avg) {
   this.name = name;
   this.minCustomer = minCustomer;
@@ -12,6 +13,7 @@ function Restaurant(name,minCustomer,maxCustomer,avg) {
 }
 Restaurant.locationArray = [];
 
+
 // New Objects for each city //
 new Restaurant('Seattle',23,65,6.3);
 new Restaurant('Tokyo',3,22,1.2,);
@@ -19,7 +21,6 @@ new Restaurant('Dubai',11,38,3.7);
 new Restaurant('Paris',20,38,2.3);
 new Restaurant('Lima',2,16,4.6);
 
-console.log(Restaurant.locationArray)
 
 ///////////Generates Customer////////////////
 Restaurant.prototype.generateCustomer = function(minCustomer,maxCustomer) {
@@ -29,14 +30,12 @@ Restaurant.prototype.generateCustomer = function(minCustomer,maxCustomer) {
 }
 ////////////////Prototype that generates cookie per/hr sales array//////////
 Restaurant.prototype._generateCookieSalesArray = function() {
-  for(let i = 0; i < hoursOfOperation.length -1; i++) {
+  for(let i = 0; i < hoursOfOperation.length; i++) {
     let cookiesPerHour = this.generateCustomer() * this.avg
     this.cookieSalesArray.push(Math.round(cookiesPerHour))
   }
 }
-console.log(Restaurant._generateCookieSalesArray)
 /////////////// function that refactors _generateCookiesSalesArray and returns data for all cities.////////////////
-
 function renderSalesArrayAll() {
   for(let i = 0; i < Restaurant.locationArray.length; i++) {
     const currentInstance = Restaurant.locationArray[i];
@@ -56,7 +55,6 @@ function createElement (tag, parent,text) {
 }
 
 ////////////////////Render our location data per/location per/hour./////////////
-
 Restaurant.prototype.renderLocationData = function(body) {
   let total = 0;
   /////Makes a row and appends to the body//////
@@ -66,7 +64,7 @@ Restaurant.prototype.renderLocationData = function(body) {
   const thEl = createElement('th', trEl, this.name)
   
   ////Generates Cookie Per Hour Data///////
-  for(let i = 0; i < hoursOfOperation.length - 1; i++) {
+  for(let i = 0; i < hoursOfOperation.length; i++) {
     let cookieHourData = this.cookieSalesArray[i];
     total += cookieHourData
     createElement('td', trEl, cookieHourData)
@@ -87,8 +85,8 @@ function createFooter() {
   createElement('th', trEl, 'Hourly Total')
   let hourTotal = 0
   let dayTotal = 0
-
-  for(let i = 0; i < hoursOfOperation.length -1; i++) {
+  
+  for(let i = 0; i < hoursOfOperation.length; i++) {
     for(let j = 0; j < Restaurant.locationArray.length; j++) {
       let currentLocation = Restaurant.locationArray[j];
       hourTotal += currentLocation.cookieSalesArray[i];
@@ -98,24 +96,39 @@ function createFooter() {
     hourTotal = 0
   }
   createElement('td', trEl, dayTotal)
-
+  
 }
-
+// Create Header //
 function createHeader() {
   const theadEl = createElement('thead',cityDiv, null)
   const trEl = createElement('tr', theadEl, null);
+  createElement('th', trEl, ' ');
   for(let i = 0; i < hoursOfOperation.length; i++) {
-    createElement('th', trEl, hoursOfOperation[i])
+    createElement('th', trEl, hoursOfOperation[i]);
   }
+  createElement('th',trEl,'Daily Totals');
 };
+function handleEvent(event) {
+  event.preventDefault();
 
+  let name = event.target.name.value;
+  let minCustomer = parseInt(event.target.minCustomer.value);
+  let maxCustomer = parseInt(event.target.maxCustomer.value);
+  let avg = parseInt(event.target.avg.value);
+  let newLocation = new Restaurant(name,minCustomer,maxCustomer,avg)
 
+  cityDiv.innerHTML = '';
+  newLocation._generateCookieSalesArray();
+  renderAllLocationData();
+  createHeader();
+  createFooter();
+  event.target.reset();
+}
 
 renderAllLocationData();
 createHeader();
 createFooter();
-
-
+document.getElementById('location-form').addEventListener('submit',handleEvent);
 
 
 
