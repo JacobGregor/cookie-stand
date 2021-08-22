@@ -4,58 +4,128 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Klee+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/homepage.css">
   <title>Salmon Cookies</title>
 </head>
 <body>
-<header>
-  <nav>
-    <a href="https://www.wildsalmon.org/about/save-our-wild-salmon-coalition.html">
-      <img src="assets/img/salmon (logo).png">
-    </a>
-    <ul>
-      <li>Seattle</li>
-      <li>Tokyo</li>
-      <li>Dubia</li>
-      <li>Paris</li>
-      <li>Lima</li>
-    </ul>
-  </nav>
+  <!-- Heading Section -->
+<header id="top">
+  <section class="header-container">
+    <div class="logo-image-container">
+      <a href="index.html">
+        <img src="assets/img/salmon (logo).png" class="logo-image">
+      </a>
+      <div class="middle">
+        <div class="text">Homepage</div>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="location-button">Locations</button>
+      <div class="drop-content">
+        <a href="https://www.google.com/maps/place/Seattle,+WA/@47.6131746,-122.4821493,11z/data=!3m1!4b1!4m5!3m4!1s0x5490102c93e83355:0x102565466944d59a!8m2!3d47.6062095!4d-122.3320708">Seattle</a>
+        <a href="https://www.google.com/maps/place/Tokyo,+Japan/@35.5062898,138.6485089,8z/data=!3m1!4b1!4m5!3m4!1s0x605d1b87f02e57e7:0x2e01618b22571b89!8m2!3d35.6761919!4d139.6503106">Tokyo</a>
+        <a href="https://www.google.com/maps/place/Dubai+-+United+Arab+Emirates/@25.0763815,54.9475471,10z/data=!3m1!4b1!4m5!3m4!1s0x3e5f43496ad9c645:0xbde66e5084295162!8m2!3d25.2048493!4d55.2707828">Dubai</a>
+        <a href="https://www.google.com/maps/place/Paris,+France/@48.8589507,2.2770198,12z/data=!3m1!4b1!4m5!3m4!1s0x47e66e1f06e2b70f:0x40b82c3688c9460!8m2!3d48.856614!4d2.3522219">Paris</a>
+        <a href="https://www.google.com/maps/place/Lima,+Peru/@-12.025827,-77.2679809,10z/data=!3m1!4b1!4m5!3m4!1s0x9105c5f619ee3ec7:0x14206cb9cc452e4a!8m2!3d-12.0463731!4d-77.042754">Lima</a>
+      </div>   
+    </div>
+    <div class="dropdown-sales">
+      <button class="sales-button">Sales Data</button>
+      <div class="drop-content-sales">
+        <a href="sales.html">Sales By Location</a>
+        <a href="">Investor Reports (Coming Soon)</a>
+        <a href="">How to Invest (Coming Soon)</a>
+      </div>   
+    </div>
+    <div class="dropdown-hours">
+      <button class="hours-button">Store Hours</button>
+      <div class="drop-content-hours">
+        <h1>Hours of operation: 6am - 7pm (M-F)</h1>
+      </div> 
+    </div>
+    <div class="dropdown-about-us">
+      <button class="about-us-button">About Us</button>
+      <div class="drop-content-about-us">
+        <a href="index.html#about-us-target">About Us</a>
+      </div> 
+    </div>
+  </section>
 </header>
+<!-- Start of Main Page -->
 <main>
-  <section>
-    <a href="sales.html">
-      <img src="assets/img/chinook.jpg" alt="Click for Sales Data!">
-    </a>
-    <p class="imagetext" >"Click for Sales Data!"</p>
+  <section class="main-heading">
+    <h1>Salmon Cookies</h1>
+    <p>Home of the origional <b>"Cho-CoHo-Chip Cookie!"</b></p>
   </section>
-  <section>
-    <img src="assets/img/cookieCutter.jpg">
-    <img src="assets/img/frosted-cookie.jpg">
-    <img src="assets/img/schoolOfFish.jpg">
+  <section class="cookies-section-container">
+    <section class="cookies-image-container">
+      <img src="assets/img/cookieCutter.jpg">
+      <img src="assets/img/frosted-cookie.jpg">
+      <img src="assets/img/schoolOfFish.jpg">
+    </section>
+    <section class="cookies-section-description">
+      <h1>Weve come a long way in our design!</h1>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero ratione atque dolores quae tenetur ab quidem placeat dolor! Possimus repudiandae debitis consequatur dolorum laboriosam doloremque repellendus accusamus ut odio autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum voluptatibus a magni mollitia at? Illum, asperiores a. Ut, voluptas sunt! Molestiae expedita quae aut, corporis id incidunt facilis officia necessitatibus!</p>
+    </section>
   </section>
-  <section>
-    <img src="assets/img/family.jpg">
-    <article>
-      <h3>About Salmon Cookies!</h3>
-      <ul>
-        <li>Locations:</li>
-        <li>Seattle: 175 Henry Smith Road North Andover, MA 01845</li>
-        <li>Tokyo: 238-1291, Nishikamikawara, Shichinohe-machi Kamikita-gun, Aomori</li>
-        <li>Dubai: Lulueyah Area, KFN-Dibba Road, P.O. Box: 9970</li>
-        <li>Paris: 111 Square de la Couronne, Paris Île-de-France, 75001</li>
-        <li>Lima: Av Andrés Rázuri 199 Maranga, San Miguel,  Lima</li>
-      </ul>
-      <button>Call to Action</button>
-    </article>
+  <section class="merch-section-container">
+    <section class="merch-image-container">
+        <img src="assets/img/chinook.jpg">
+        <img src="assets/img/shirt.jpg">
+    </section>
+    <section class="merch-section-description">
+      <h1>Weve come a long way in our design!</h1>
+      <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero ratione atque dolores quae tenetur ab quidem placeat dolor! Possimus repudiandae debitis consequatur dolorum laboriosam doloremque repellendus accusamus ut odio autem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum voluptatibus a magni mollitia at? Illum, asperiores a. Ut, voluptas sunt! Molestiae expedita quae aut, corporis id incidunt facilis officia necessitatibus!</p>
+    </section>
+  </section>
+  <section class="about-us-container">
+    <section class="family-image">
+      <img src="assets/img/family.jpg">
+    </section>
+    <section class="about-us-heading">
+      <h1 id="about-us-target">About Salmon Cookies!</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero magni at quod vitae cupiditate, ea quos nam fugiat assumenda nesciunt facilis voluptate qui corporis impedit odit aspernatur repellat. Eveniet, recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque voluptas tempore nobis quo, natus ut reiciendis in suscipit tempora veniam, commodi magni neque provident ratione quam! Adipisci corrupti minus deleniti. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi pariatur molestias iusto quod fuga dolores impedit. Temporibus soluta fugit iste corrupti illo? Commodi nihil ad quidem laudantium! Aperiam, possimus porro.</p>
+    </section>
+  </section>
+  <section class="final-row-container">
+    <section class="final-row-heading">
+      <h1 id="final-row-target">Looking to find out more?</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero magni at quod vitae cupiditate, ea quos nam fugiat assumenda nesciunt facilis voluptate qui </p>
+    </section>
   </section>
 </main>
   <footer>
-    <h3>Hours of Operation: 6:00am - 7:00pm</h3>
-    <a class="contact" href="https://github.com/JacobGregor">
-      <h3>Contact Us!</h3>
-    </a>
+    <section class="footer-container">
+      <div class="footer-logo-image-container">
+        <a href="index.html#top">
+          <img src="assets/img/salmon (logo).png" class="footer-logo-image">
+        </a>
+        <div class="footer-middle">
+          <div class="footer-text">Top</div>
+        </div>
+      </div>
+        <div class="dropdown-footer">
+          <button class="button-footer">Contact Us</button>
+          <div class="drop-content-footer">
+            <a>Tele. (206).369.8736</a>
+            <a>Email. Jake_Gregor@icloud.com</a>
+          </div>  
+        </div>
+        <div class="dropdown-footer-careers">
+          <button class="button-footer-careers">Careers</button>
+          <div class="drop-content-footer-careers">
+            <a>Hiring: Admiral - (pos. Lead Baker)</a>
+            <a>Hiring: First Mate - (pos. Lead Asst.)</a>
+            <a>Hiring: Deckhand - (pos. Dishwasher)</a>
+          </div> 
+        </div>
   </footer>
   <script src="js/app.js"></script>
 </body>
