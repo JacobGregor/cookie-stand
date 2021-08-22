@@ -1,59 +1,527 @@
-/* Styling for the Header & Nav Elements */
+
+                                                    /* Styling Header Begins */
 header {
   width: 100%;
   display: flex;
-
 }
-nav {
+.header-container {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-between ;
   background-color:salmon;
   padding: 10px;
-  margin-bottom: 30px;
   
 }
-nav a {
-  width: 20%;
-  
-}
-nav img {
+
+/* Styling Header Logo Image */
+.logo-image-container {
+  position: relative;
   width: 50%;
-  display: flex;
-  margin-right: 35px;
+}
+
+.logo-image {
+  opacity: 1;
+  display: block;
+  width: 25%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 13%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  text-align: Center;
+}
+
+.logo-image-container:hover .logo-image {
+  opacity: 0.3;
+}
+.logo-image-container:hover .middle {
   opacity: 1;
 }
-nav img:hover {opacity: .3;}
+
+.text {
+  color: white;
+  font-size: 12px;
+  padding: 5px 7px;
+}
+/* End Styling Header Logo */
 
 
-nav ul {
+                                                    /* Styling for heading Buttons */
+
+/* Locations Button */
+.location-button {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 16px;
+  border: none;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+
+}
+.drop-content a:hover {background-color: #ddd;}
+.dropdown:hover .drop-content {display: block;}
+.dropdown:hover .location-button {background-color: lightblue;}
+/* End Locations Button */
+
+
+/* Sales Data Button */
+.sales-button {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 16px;
+  border: none;
+}
+.dropdown-sales {
+  position: relative;
+  display: inline-block;
+}
+
+.drop-content-sales {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content-sales a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+
+}
+.drop-content-sales a:hover {background-color: #ddd;}
+.dropdown-sales:hover .drop-content-sales {display: block;}
+.dropdown-sales:hover .sales-button {background-color: lightblue;}
+/* End Sales Data Button */
+
+
+
+/* Hours Button */
+.hours-button {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 16px;
+  border: none;
+}
+.dropdown-hours {
+  position: relative;
+  display: inline-block;
+}
+.drop-content-hours {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content-hours h1 {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+}
+
+.drop-content-hours h1:hover {background-color: #ddd;}
+.dropdown-hours:hover .drop-content-hours {display: block;}
+.dropdown-hours:hover .hours-button {background-color: lightblue;}
+/* End Hours Button */
+
+/* About Us Button */
+.about-us-button {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 16px;
+  border: none;
+}
+.dropdown-about-us {
+  position: relative;
+  display: inline-block;
+}
+.drop-content-about-us {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content-about-us a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+}
+
+.drop-content-about-us a:hover {background-color: #ddd;}
+.dropdown-about-us:hover .drop-content-about-us {display: block;}
+.dropdown-about-us:hover .about-us-button {background-color: lightblue;}
+/* End Header Button Styling */
+/* End Header Styling */
+
+
+
+                                                    /* Main Styling Section Begins */
+.main-heading {
   display: flex;
-  flex-direction: row;
-  justify-content: right;
+  flex-direction: column;
   align-items: center;
 }
-nav ul li {
+
+.main-heading h1 {
+  font-family: 'Bebas Neue';
+  font-size: 64px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+
+.main-heading p {
+  font-family: 'Bebas Neue';
   font-size: 16px;
-  width: 76px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Styling Cookies Section */
+.cookies-section-container {
   display: flex;
   flex-direction: row;
-  justify-content: right;
+  align-items: center;
 }
-/* Sty ling for Section 1 with the large Image*/
-main section:nth-child(1) {
+
+.cookies-image-container {
+  display: flex;
+  background-color: lightgray;
+}
+
+.cookies-image-container img {
+  width: 200px;
+  height: auto;
   display: flex;
   justify-content: center;
+  margin: 20px;
 }
-main section:nth-child(1) img {
+
+.cookies-section-description {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgray;
+}
+
+.cookies-section-description h1 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: bold;
+  background-color: salmon;
+  width: 100%;
+}
+
+.cookies-section-description p {
+  font-family: 'Bebas Neue';
+  font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+
+
+/* Styling Merch Section */
+.merch-section-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.merch-image-container {
+  display: flex;
+  background-color: lightgray;
+  padding: 20px;
+}
+.merch-image-container img:nth-child(1) {
+  width: 400px;
+  height: auto;
+}
+.merch-image-container img:nth-child(2) {
+  width: 200px;
+  height: auto;
+}
+.merch-section-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.merch-section-description h1 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: bold;
+  background-color: salmon;
+  width: 100%;
+}
+
+.merch-section-description p {
+  font-family: 'Bebas Neue';
+  font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+
+/* About-Us Section */
+.about-us-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* family Image */
+.family-image {
+  background-color: lightgray;
+  padding: 20px;
+}
+
+.family-image img {
+  width: 705px;
+  height: auto;
+}
+
+.about-us-heading {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-heading h1 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: bold;
+  background-color: salmon;
+  width: 100%;
+}
+
+.about-us-heading p {
+  font-family: 'Bebas Neue';
+  font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+/* End About-Us */
+
+/* final-row styling */
+.final-row-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.final-row-heading h1 {
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+
+.final-row-heading p {
+  font-family: 'Bebas Neue';
+  font-size: 16px;
+  font-weight: bold;
+  background-color: lightblue;
+  width: 100%;
+}
+
+
+
+/* Footer-Styling */
+footer {
+  width: 100%;
+  display: flex;
+}
+.footer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content:start ;
+  background-color:salmon;
+  padding: 10px;
+  /* margin-bottom: 40px; */
+  
+}
+
+/* Footer Logo */
+.footer-logo-image-container {
+  position: relative;
+  width: 50%;
+}
+
+.footer-logo-image {
+  opacity: 1;
+  display: block;
+  width: 25%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.footer-middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  bottom: 1%;
+  left: 13%;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  text-align: Center;
+}
+
+.footer-logo-image-container:hover .footer-logo-image {
+  opacity: 0.3;
+}
+.footer-logo-image-container:hover .footer-middle {
   opacity: 1;
 }
-.imagetext {
-  opacity: 0;
+
+.footer-text {
+  color: white;
+  font-size: 12px;
+  padding: 5px 7px;
 }
-main section:nth-child(1) img:hover {opacity: .3;}
-main section:nth-child(1) img:hover .imagetext {opacity: 1;
-text-align: justify;}
+
+/* Footer Buttons */
+.button-footer {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px;
+  border: none;
+  /* margin-right: 30px; */
+}
+.dropdown-footer {
+  position: relative;
+  display: inline-block;
+}
+.drop-content-footer {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content-footer a {
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+}
+
+.drop-content-footer a:hover {background-color: #ddd;}
+.dropdown-footer:hover .drop-content-footer {display: block;}
+.dropdown-footer:hover .button-footer {background-color: lightblue;}
+
+
+.button-footer-careers {
+  background-color: salmon;
+  color: white;
+  font-family: 'Klee One';
+  font-weight: bold;
+  font-size: 14px;
+  padding: 2px;
+  border: none;
+}
+.dropdown-footer-careers {
+  position: relative;
+  display: inline-block;
+}
+.drop-content-footer-careers {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.drop-content-footer-careers a {
+  color: black;
+  padding: 2px 4px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Klee One';
+}
+
+.drop-content-footer-careers a:hover {background-color: #ddd;}
+.dropdown-footer-careers:hover .drop-content-footer-careers {display: block;}
+.dropdown-footer-careers:hover .button-footer-careers {background-color: lightblue;}
+
+
+/* End Footer Styling */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Sty ling for Section 1 with the large Image*/
 
 
 main section:nth-child(2) {
@@ -87,45 +555,7 @@ main section:nth-child(3) img {
   margin-bottom: 30px;
   /* opacity: 1; */
 }
-/* main section:nth-child(3) img:hover {opacity: .3;} */
-
-main section:nth-child(3) article h3 {
-  margin-bottom: 5px;
-}
-main section:nth-child(3) article p {
-  width: 100%;
-  overflow: scroll;
-  height: 345px;
-  margin-bottom: 5px;
-}
-main section:nth-child(3) article button {
-  background-color: black;
-  color: white;
-  height: 30px;
-  width: 130px;
-  margin-bottom: 20px;
-  opacity: .4;
-  transition: .350s;
-  
-}
-main section:nth-child(3) article button:hover {opacity: 1;}
 
 
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  background-color: salmon;
-  height: 100px;
-  margin-bottom: 20px;
-}
-footer h3 {
-  align-items: baseline;
-}
 
-.contact {
-  opacity: 1;
-}
-.contact:hover {
-  opacity: .5;
-}
+
