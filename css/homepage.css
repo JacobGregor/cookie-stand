@@ -253,6 +253,7 @@ header {
   display: flex;
   flex-direction: column;
   background-color: lightgray;
+  align-items: center;
 }
 
 .cookies-section-description h1 {
@@ -266,9 +267,9 @@ header {
 .cookies-section-description p {
   font-family: 'Bebas Neue';
   font-size: 16px;
-  font-weight: bold;
   background-color: lightblue;
   width: 100%;
+
 }
 
 
@@ -276,6 +277,7 @@ header {
 .merch-section-container {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
 }
 
 .merch-image-container {
@@ -307,7 +309,6 @@ header {
 .merch-section-description p {
   font-family: 'Bebas Neue';
   font-size: 16px;
-  font-weight: bold;
   background-color: lightblue;
   width: 100%;
 }
@@ -316,6 +317,7 @@ header {
 .about-us-container {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 /* family Image */
@@ -345,7 +347,6 @@ header {
 .about-us-heading p {
   font-family: 'Bebas Neue';
   font-size: 16px;
-  font-weight: bold;
   background-color: lightblue;
   width: 100%;
 }
@@ -368,7 +369,6 @@ header {
 .final-row-heading p {
   font-family: 'Bebas Neue';
   font-size: 16px;
-  font-weight: bold;
   background-color: lightblue;
   width: 100%;
 }
@@ -524,7 +524,7 @@ footer {
 /* Sty ling for Section 1 with the large Image*/
 
 
-main section:nth-child(2) {
+/* main section:nth-child(2) {
   width: 102%;
   display: flex;
   justify-content: center;
@@ -536,9 +536,9 @@ main section:nth-child(2) img {
   margin-right: 30px;
 margin-bottom: 30px;
   /* opacity: 1; */
-}
-/* main section:nth-child(2) img:hover {opacity: .3;} */
 
+/* main section:nth-child(2) img:hover {opacity: .3;} */
+/* 
 main section:nth-child(3) {
   width: 100%;
   display: flex;
@@ -554,7 +554,7 @@ main section:nth-child(3) img {
   margin-right: 30px;
   margin-bottom: 30px;
   /* opacity: 1; */
-}
+
 
 
 
